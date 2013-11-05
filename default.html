@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery.i18n.properties: Demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="content-script-type" content="text/javascript" />
+
+    <!-- JS -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://codingwithcoffee.com/files/trunk/jquery.i18n.properties.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+        jQuery.i18n.properties({
+            name:'Messages',
+            path:'bundle/',
+            mode:'both',
+            language:'pt',
+            callback: function() {
+                // We specified mode: 'both' so translated values will be
+                // available as JS vars/functions and as a map
+
+                // Accessing a simple value through the map
+                jQuery.i18n.prop('msg_first');
+                jQuery.i18n.prop('msg_last');
+                jQuery.i18n.prop('msg_phone');
+                jQuery.i18n.prop('msg_email');
+                jQuery.i18n.prop('msg_address');
+                jQuery.i18n.prop('msg_note');
+                jQuery.i18n.prop('msg_submit');
+                $('#lbleadFirstName').text(msg_first);
+                $('#lbleadLastName').text(msg_last);
+                $('#lbleadPhone').text(msg_phone);
+                $('#lbleadEmail').text(msg_email);
+                $('#lbleadAddress').text(msg_address);
+                $('#lbleadNote').text(msg_note);
+                $('#button1').text(msg_submit);
+
+                // Accessing a value with placeholders through a JS function
+                //alert(msg_complex('John'));
+            }
+        });
+        });
+    </script>
+</head>
+<body>
+<div class="form-group">
+    <label for="leadFirstName" id="lbleadFirstName">Lead First Name:</label>
+    <input name="leadFirstName" id="leadFirstName" type="text" class="form-control">
+</div>
+<div class="form-group">
+    <label for="leadLastName" id="lbleadLastName">Lead Last Name:</label>
+    <input name="leadLastName" id="leadLastName" type="text" class="form-control">
+</div>
+<div class="form-group">
+    <label for="leadPhone" id="lbleadPhone">Lead Phone:</label>
+    <input name="leadPhone" id="leadPhone" type="text" class="form-control">
+</div>
+<div class="form-group">
+    <label for="leadEmail" id="lbleadEmail">Lead E-mail:</label>
+    <input name="leadEmail" id="leadEmail" type="text" class="form-control">
+</div>
+<div class="form-group">
+    <label for="leadAddress" id="lbleadAddress">Lead Address:</label>
+    <input name="leadAddress" id="leadAddress" type="text" class="form-control">
+</div>
+<div class="form-group">
+    <label for="leadNote" id="lbleadNote">Lead Note:</label>
+    <textarea name="leadNote" id="leadNote" rows="5" class="form-control"
+              style="resize: none;"></textarea>
+</div>
+<button type="submit" class="btn btn-primary"  id="button1">ok</button>
+
+</body>
+</html>
