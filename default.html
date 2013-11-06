@@ -9,7 +9,11 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
     <script type="text/javascript" src="http://codingwithcoffee.com/files/trunk/jquery.i18n.properties.js"></script>
     <script type="text/javascript">
+        function onSubmit(){
+            alert(msg_alert);
+        }
         jQuery(document).ready(function() {
+
         jQuery.i18n.properties({
             name:'Messages',
             path:'bundle/',
@@ -27,6 +31,8 @@
                 jQuery.i18n.prop('msg_address');
                 jQuery.i18n.prop('msg_note');
                 jQuery.i18n.prop('msg_submit');
+                jQuery.i18n.prop('msg_title');
+                jQuery.i18n.prop('msg_alert');
                 $('#lbleadFirstName').text(msg_first);
                 $('#lbleadLastName').text(msg_last);
                 $('#lbleadPhone').text(msg_phone);
@@ -34,6 +40,7 @@
                 $('#lbleadAddress').text(msg_address);
                 $('#lbleadNote').text(msg_note);
                 $('#button1').text(msg_submit);
+                $('#title').html(msg_title);
 
                 // Accessing a value with placeholders through a JS function
                 //alert(msg_complex('John'));
@@ -43,6 +50,7 @@
     </script>
 </head>
 <body>
+<H2 id="title"></H2><br>
 <div class="form-group">
     <label for="leadFirstName" id="lbleadFirstName">Lead First Name:</label>
     <input name="leadFirstName" id="leadFirstName" type="text" class="form-control">
@@ -68,7 +76,7 @@
     <textarea name="leadNote" id="leadNote" rows="5" class="form-control"
               style="resize: none;"></textarea>
 </div>
-<button type="submit" class="btn btn-primary"  id="button1">ok</button>
+<button type="submit" class="btn btn-primary"  id="button1" onclick="onSubmit()">ok</button>
 
 </body>
 </html>
